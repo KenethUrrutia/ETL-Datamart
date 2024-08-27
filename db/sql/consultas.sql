@@ -1,0 +1,21 @@
+-- Active: 1724791521514@@localhost@3310@VENTAS_SUCURSAL
+
+-- ¿Qué empleado es el que ha vendido más unidades de productos?
+SELECT e.`IDEMPLEADO`, e.`NOMBRE`, SUM(v.`CANTIDADPRODUCTOS`) AS "PRODUCTOS VENDIDOS"
+FROM `EMPLEADO` e
+    INNER JOIN `VENTA` v ON v.`IDEMPLEADO` = e.`IDEMPLEADO`
+GROUP BY
+    v.`IDEMPLEADO`
+ORDER BY SUM(v.`CANTIDADPRODUCTOS`) DESC
+LIMIT 1;
+
+-- ¿A qué sucursal pertenece el empleado que ha generado mayor cantidad de importe por ventas?
+SELECT s.`IDSUCURSAL`, s.`DESCRIPCION`, e.`NOMBRE`, SUM(v.`TOTALVENTA`) AS "IMPORTE POR VENTAS"
+FROM
+    `EMPLEADO` e
+    INNER JOIN `SUCURSAL` s ON e.`IDSUCURSAL` = s.`IDSUCURSAL`
+    INNER JOIN `VENTA` v ON v.`IDEMPLEADO` = e.`IDEMPLEADO`
+GROUP BY
+    v.`IDEMPLEADO`
+ORDER BY SUM(v.`TOTALVENTA`) DESC
+LIMIT 1;
