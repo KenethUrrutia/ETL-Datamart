@@ -53,7 +53,7 @@ Asumiremos que los sistemas transaccionales de las sucursales tendrán esquemas 
 **Implementación**
 
 **Estructura del programa:**
-
+```
 ├── app.py
 ├── db
 │   ├── data
@@ -71,7 +71,7 @@ Asumiremos que los sistemas transaccionales de las sucursales tendrán esquemas 
         ├── dimensiones.py
         ├── hechos.py
         ├── limpiar.py
-
+```
 - **app.py** contiene la aplicación principal, que consta de un bucle con un menú de opciones
 - **Limpiar los datos del datamart:** elimina todas las tuplas de todas las tablas del datamart (si existieran debido a una prueba anterior).
 - **Poblar las tablas de dimensiones:** realiza consultas a las bases de datos de ambas sucursales y realiza las inserciones a las tablas de dimensiones del datamart.
